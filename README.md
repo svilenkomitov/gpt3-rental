@@ -1,6 +1,6 @@
 # gpt3-rental
 
-Use GPT-3 model (can understand and generate natural language) to generate description for the provided rental id (fetch rental details from Outdoorsy staging environment).  
+Use GPT-3 model (can understand and generate natural language) to generate description for the provided rental id (fetch rental details from Outdoorsy  API).  
 In order to make more compelling description we ask GPT-3 to provide an idea for camping activity. 
 We also use the National Parks Service API to add information for nearly (campgrounds and rental are in the same state) located campgrounds.
 
