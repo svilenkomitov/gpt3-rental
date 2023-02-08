@@ -30,7 +30,7 @@ func GetChoices(prompt string, apiKey string) (Response, error) {
 	request := Request{
 		Model:     "text-davinci-003",
 		Prompt:    prompt,
-		MaxTokens: 100,
+		MaxTokens: 256,
 	}
 
 	// Marshal the request struct into JSON
