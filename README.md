@@ -42,3 +42,4 @@ We use OpenAI API which is paid (https://openai.com/api/pricing/). The price wit
 
 * https://towardsdatascience.com/gpt-3-parameters-and-prompt-design-1a595dc5b405
 * https://platform.openai.com/docs/api-reference/completions
+* https://ai.stackexchange.com/questions/38150/how-does-chatgpt-retain-the-context-of-previous-questions
