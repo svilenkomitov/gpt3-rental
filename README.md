@@ -17,6 +17,12 @@ We also use the National Parks Service API to add information for nearly (campgr
 * setup required env variables ***NPS_API_KEY*** and ***GPT3_API_KEY***
 * run the application ```go run cmd/main.go```
 * access the API http://localhost:8081/<rental_id>
+  * expected response
+      ```json
+      {
+        "description": "\n\nExperience the ultimate in luxury RV rental with the 2022 Entegra Coach Vision XL. This Class A RV comes with all the amenities you need for a comfortable and enjoyable experience, including an inside shower, toilet, generator, solar, audio inputs, radio, TV/DVD, dining table, kitchen sink, microwave, oven, refrigerator, stove, 1 full, 1 king, 1 sofa, awning, backup camera, extra storage, leveling jacks, water tank, air conditioner, ceiling fan, and heater. Whether you're headed to Anacapa Island Campground or Atwell Mill Campground, you can enjoy a relaxing camping experience with all the comforts of home. For an added outdoor activity, why not explore the nearby trails? At Atwell Mill Campground, you can take a scenic hike along the Atwell-Hockett Trail and take in the breathtaking views of the East Fork of the Kaweah River."
+      }
+      ```
 
 ## Pricing
 
