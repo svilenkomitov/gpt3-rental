@@ -10,9 +10,10 @@ import (
 
 // Request is a struct to hold request data
 type Request struct {
-	Model     string `json:"model"`
-	Prompt    string `json:"prompt"`
-	MaxTokens int    `json:"max_tokens"`
+	Model       string  `json:"model"`
+	Prompt      string  `json:"prompt"`
+	MaxTokens   int     `json:"max_tokens"`
+	Temperature float64 `json:"temperature"`
 }
 
 // Response is a struct to hold response data
@@ -28,9 +29,10 @@ func GetChoices(prompt string, apiKey string) (Response, error) {
 
 	// Create a new request
 	request := Request{
-		Model:     "text-davinci-003",
-		Prompt:    prompt,
-		MaxTokens: 256,
+		Model:       "text-davinci-003",
+		Prompt:      prompt,
+		MaxTokens:   300,
+		Temperature: 0.6,
 	}
 
 	// Marshal the request struct into JSON

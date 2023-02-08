@@ -52,21 +52,22 @@ type Rental struct {
 				State   string  `json:"state"`
 				Zip     string  `json:"zip"`
 			} `json:"location"`
-			Name         string `json:"name"`
-			PricePerDay  int    `json:"price_per_day"`
-			Sleeps       int    `json:"sleeps"`
-			SleepsAdults int    `json:"sleeps_adults"`
-			SleepsKids   int    `json:"sleeps_kids"`
-			VehicleMake  string `json:"vehicle_make"`
-			VehicleModel string `json:"vehicle_model"`
-			VehicleTitle string `json:"vehicle_title"`
+			Name           string `json:"name"`
+			PricePerDay    int    `json:"price_per_day"`
+			Sleeps         int    `json:"sleeps"`
+			SleepsAdults   int    `json:"sleeps_adults"`
+			SleepsKids     int    `json:"sleeps_kids"`
+			VehicleMake    string `json:"vehicle_make"`
+			VehicleModel   string `json:"vehicle_model"`
+			VehicleTitle   string `json:"vehicle_title"`
+			RentalCategory string `json:"rental_category"`
 		} `json:"attributes"`
 	} `json:"data"`
 }
 
 func GetRental(id int) (Rental, error) {
 	// Define the API endpoint URL
-	url := fmt.Sprintf("https://search.staging.outdoorsy.com/rentals/%d", id)
+	url := fmt.Sprintf("https://search.outdoorsy.com/rentals/%d", id)
 
 	// Create a new GET request
 	req, err := http.NewRequest("GET", url, nil)

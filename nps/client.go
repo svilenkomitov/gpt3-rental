@@ -10,7 +10,6 @@ import (
 type Campgrounds struct {
 	Data []struct {
 		Name        string `json:"name"`
-		ParkCode    string `json:"parkCode"`
 		Description string `json:"description"`
 	} `json:"data"`
 }
@@ -20,7 +19,7 @@ func GetCampgrounds(state string, apiKey string) (Campgrounds, error) {
 	client := &http.Client{}
 
 	// Build the request
-	req, err := http.NewRequest("GET", fmt.Sprintf("https://developer.nps.gov/api/v1/campgrounds?api_key=%s&stateCode=%s", apiKey, state), nil)
+	req, err := http.NewRequest("GET", fmt.Sprintf("https://developer.nps.gov/api/v1/campgrounds?api_key=%s&stateCode=%s&limit=2", apiKey, state), nil)
 	if err != nil {
 		fmt.Println(err)
 		return Campgrounds{}, err

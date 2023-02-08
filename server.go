@@ -56,6 +56,7 @@ func Start() {
 			json.NewEncoder(w).Encode(errRes)
 			return
 		}
+		fmt.Printf("Rental: %v \n", rental)
 
 		campgrounds, err := nps.GetCampgrounds(rental.Data.Attributes.Location.State, npsApiKey)
 		if err != nil {
@@ -65,8 +66,22 @@ func Start() {
 			json.NewEncoder(w).Encode(errRes)
 			return
 		}
+		fmt.Printf("Campgrounds: %v \n", campgrounds)
 
-		prompt := fmt.Sprintf("create description for rv rental using the following data %v. You can also add information for near campgrounds %v", rental, campgrounds)
+		//promptCampingIdeas := fmt.Sprintf("come up with an idea for camping activity")
+		//respCampingIdeas, err := gpt3.GetChoices(promptCampingIdeas, gpt3ApiKey)
+		//if err != nil {
+		//	errRes := ErrorResponse{Error: err.Error()}
+		//	w.WriteHeader(http.StatusBadRequest)
+		//	w.Header().Set("Content-Type", "application/json")
+		//	json.NewEncoder(w).Encode(errRes)
+		//	return
+		//}
+		//fmt.Printf("Ideas: %v \n", respCampingIdeas.Choices[0].Text)
+		//
+		//time.Sleep(20 * time.Second)
+
+		prompt := fmt.Sprintf("come up with a description for %s rental using this information: %v %v and add an idea for camping activity", rental.Data.Attributes.RentalCategory, rental, campgrounds)
 		resp, err := gpt3.GetChoices(prompt, gpt3ApiKey)
 		if err != nil {
 			errRes := ErrorResponse{Error: err.Error()}
@@ -75,6 +90,7 @@ func Start() {
 			json.NewEncoder(w).Encode(errRes)
 			return
 		}
+		fmt.Printf("Description: %v \n", resp.Choices[0].Text)
 
 		res := Response{Description: resp.Choices[0].Text}
 		w.Header().Set("Content-Type", "application/json")
